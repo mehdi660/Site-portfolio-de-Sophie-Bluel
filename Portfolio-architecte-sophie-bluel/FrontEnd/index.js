@@ -1,3 +1,6 @@
+
+
+
 const gallery = document.querySelector(".gallery")
 // let category = window.localStorage.getItem('categoryId')
 let elementTableau;
