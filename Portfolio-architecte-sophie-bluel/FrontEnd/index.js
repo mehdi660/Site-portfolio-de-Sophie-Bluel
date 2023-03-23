@@ -1,6 +1,5 @@
 
 
-
 const gallery = document.querySelector(".gallery")
 // let category = window.localStorage.getItem('categoryId')
 let elementTableau;
@@ -31,6 +30,7 @@ function ajoutGallerie(json) {
         // console.log(gallery.innerHTML);
 
     });
+
 }
 
 const btnAll = document.querySelector(".all");
@@ -60,6 +60,8 @@ btnAppart.addEventListener("click", () => {
     document.querySelector(".gallery").innerHTML = "";
     ajoutGallerie(projectFiltrees)
 });
+
+
 
 btnHotels.addEventListener("click", () => {
     const projectFiltrees = elementTableau.filter(el => el.categoryId === 3)
