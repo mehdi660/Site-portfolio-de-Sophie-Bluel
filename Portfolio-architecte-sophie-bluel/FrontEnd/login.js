@@ -26,7 +26,6 @@ function loginUser() {
                 // Si la réponse est réussie, redirigez l'utilisateur vers la page principale
                 window.location.href = "./index.html";
                 return response.json();
-
             } else {
                 // Si la réponse n'est pas réussie, affichez un message d'erreur
                 alert('Utlisateur non trouvé.');
@@ -35,11 +34,34 @@ function loginUser() {
         .then(data => {
             localStorage.setItem("token", data.token)
             console.log(data.token)
-
         })
         .catch(error => console.error(error));
 }
 
+// vérification de la présence du token dans le stockage local
+const token = localStorage.getItem("token");
+if (token) {
+    // envoyer le token avec les requêtes à l'API
+    fetch("http://localhost:5678/api/works", {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Erreur lors de la récupération des données.')
+            }
+        })
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.log(error);
+            alert(error.message)
+        })
+}
 
 
 
