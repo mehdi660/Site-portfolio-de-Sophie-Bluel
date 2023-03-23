@@ -29,7 +29,7 @@ function loginUser() {
 
             } else {
                 // Si la réponse n'est pas réussie, affichez un message d'erreur
-                throw new Error('Erreur lors de la connexion');
+                alert('Utlisateur non trouvé.');
             }
         })
         .then(data => {
