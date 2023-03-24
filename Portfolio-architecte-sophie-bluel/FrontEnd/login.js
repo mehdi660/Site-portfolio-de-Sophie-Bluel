@@ -4,13 +4,13 @@ document.querySelector("#connect").addEventListener("click", function (event) {
     loginUser(); // appelle la fonction pour se connecter à l'API
 });
 
-function loginUser() {
+async function loginUser() {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const url = "http://localhost:5678/api/users/login";
 
 
-    fetch(url, {
+    await fetch(url, {
         method: "POST",
         body: JSON.stringify({
             email: email,
@@ -18,7 +18,7 @@ function loginUser() {
         }),
         headers: {
             "Content-Type": "application/json",
-            Accept: 'application/json'
+            "Accept": 'application/json'
         }
     })
         .then(response => {
@@ -39,16 +39,19 @@ function loginUser() {
 }
 
 // vérification de la présence du token dans le stockage local
-const token = localStorage.getItem("token");
+const token = localStorage.getItem("token")
 if (token) {
     // envoyer le token avec les requêtes à l'API
     fetch("http://localhost:5678/api/works", {
         headers: {
-            Authorization: `Bearer ${token}`
+            "Content-Type": "application/json",
+            // "Accept": 'application/json',
+            'Authorization': `Bearer ${token}`
         }
     })
         .then(response => {
             if (response.ok) {
+                console.log(token);
                 return response.json();
             } else {
                 throw new Error('Erreur lors de la récupération des données.')
@@ -62,6 +65,7 @@ if (token) {
             alert(error.message)
         })
 }
+
 
 
 

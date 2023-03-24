@@ -1,7 +1,6 @@
 
-
 const gallery = document.querySelector(".gallery")
-// let category = window.localStorage.getItem('categoryId')
+let category = window.localStorage.getItem('categoryId')
 let elementTableau;
 
 
@@ -10,7 +9,7 @@ async function getWork() {
         const response = await fetch("http://localhost:5678/api/works")
         const json = await response.json()
         elementTableau = json
-        console.log(json);
+        // console.log(json);
         ajoutGallerie(json)
     } catch (error) {
         console.log(error);
@@ -30,7 +29,6 @@ function ajoutGallerie(json) {
         // console.log(gallery.innerHTML);
 
     });
-
 }
 
 const btnAll = document.querySelector(".all");
@@ -71,3 +69,7 @@ btnHotels.addEventListener("click", () => {
 });
 
 
+
+
+const token = localStorage.getItem("token")
+console.log(token);
