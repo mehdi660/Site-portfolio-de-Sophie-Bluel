@@ -43,6 +43,7 @@ const token = localStorage.getItem("token")
 if (token) {
     // envoyer le token avec les requêtes à l'API
     fetch("http://localhost:5678/api/works", {
+
         headers: {
             "Content-Type": "application/json",
             // "Accept": 'application/json',
@@ -58,7 +59,6 @@ if (token) {
             }
         })
         .then(data => {
-            console.log(data);
         })
         .catch(error => {
             console.log(error);
