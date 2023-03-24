@@ -111,6 +111,54 @@ body {
 	line-height: 1;
 }
 
+.edit {
+	background: #000000;
+	width: 100%;
+	display: block;
+	margin: 0;
+	height: 59px;
+}
+
+.edit p {
+	color: #ffff;
+	font-family: Work Sans, sans-serif;
+
+	font-size: 16px;
+}
+
+.edit-i {
+	color: #ffff;
+	font-size: 15px;
+	margin-right: 10px;
+}
+
+.edit-btn {
+	background: #000000;
+	border: none;
+	width: 200px;
+	height: 59px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.publish-btn {
+	background: #fff;
+	border: none;
+	border-radius: 60px;
+	width: 216px;
+	height: 38px;
+	font-family: Work Sans;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.edit-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 ol,
 ul {
 	list-style: none;
