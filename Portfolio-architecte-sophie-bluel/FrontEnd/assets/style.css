@@ -217,16 +217,16 @@ h1>span {
 	;
 }
 
-figure div {
+.figure-main {
 	display: flex;
-	align-items: baselines;
+	align-items: baseline;
 	justify-content: left;
 	width: 100%;
-	margin-left: 60px;
+	margin-left: 50px;
 	margin-top: 10px;
 }
 
-figure div button {
+.figure-main button {
 	border: none;
 	background: none;
 	width: 60px;
@@ -234,7 +234,7 @@ figure div button {
 	cursor: pointer;
 }
 
-figure div i {
+.figure-main i {
 	margin-right: 10px;
 	color: #110808;
 }
@@ -297,6 +297,21 @@ li:hover {
 #portfolio h2 {
 	text-align: center;
 	margin-bottom: 1em;
+}
+
+.my-project {
+	display: flex;
+	align-items: baseline;
+	justify-content: center;
+}
+
+.my-project button {
+	margin-left: 20px;
+	border: none;
+	background: none;
+	width: 60px;
+	display: flex;
+	cursor: pointer;
 }
 
 .btn-containter {
