@@ -151,6 +151,7 @@ body {
 	font-family: Work Sans;
 	font-weight: bold;
 	font-size: 14px;
+	cursor: pointer;
 }
 
 .edit-container {
@@ -214,6 +215,28 @@ h1>span {
 	font-size: 10px;
 	letter-spacing: 0.1em;
 	;
+}
+
+figure div {
+	display: flex;
+	align-items: baselines;
+	justify-content: left;
+	width: 100%;
+	margin-left: 60px;
+	margin-top: 10px;
+}
+
+figure div button {
+	border: none;
+	background: none;
+	width: 60px;
+	display: flex;
+	cursor: pointer;
+}
+
+figure div i {
+	margin-right: 10px;
+	color: #110808;
 }
 
 h2 {

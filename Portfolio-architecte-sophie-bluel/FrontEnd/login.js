@@ -24,7 +24,7 @@ async function loginUser() {
         .then(response => {
             if (response.ok) {
                 // Si la réponse est réussie, redirigez l'utilisateur vers la page principale
-                window.location.href = "./index.html";
+                window.location.href = "./admin.html";
                 return response.json();
             } else {
                 // Si la réponse n'est pas réussie, affichez un message d'erreur
