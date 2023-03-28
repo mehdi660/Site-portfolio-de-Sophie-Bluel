@@ -266,7 +266,6 @@ li:hover {
 	border: none;
 	background: none;
 	width: 60px;
-	display: flex;
 	cursor: pointer;
 	font-family: work Sans;
 }
@@ -455,6 +454,10 @@ footer nav ul {
 	height: 731px;
 	background-color: #fff;
 	border-radius: 10px;
+}
+
+.edit {
+	display: none;
 }
 
 

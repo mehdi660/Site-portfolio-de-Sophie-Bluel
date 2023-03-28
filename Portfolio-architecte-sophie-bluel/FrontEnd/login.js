@@ -1,5 +1,6 @@
 
-document.querySelector("#connect").addEventListener("click", function (event) {
+const connect = document.querySelector("input[type=submit]")
+connect.addEventListener("click", function (event) {
     event.preventDefault(); // empêche le formulaire de se soumettre de manière conventionnelle
     loginUser(); // appelle la fonction pour se connecter à l'API
 });
@@ -39,7 +40,7 @@ async function loginUser() {
 }
 
 // vérification de la présence du token dans le stockage local
-const token = localStorage.setItem("token")
+const token = localStorage.token
 if (token) {
     // envoyer le token avec les requêtes à l'API
     fetch("http://localhost:5678/api/works", {
@@ -64,12 +65,9 @@ if (token) {
         })
 }
 
-function userLoged() {
-    if (token) {
-        localStorage.getItem('token')
-    } else {
-        localStorage.removeItem('token')
-    }
-}
+
+
+
+
 
 

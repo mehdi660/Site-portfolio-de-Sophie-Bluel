@@ -65,9 +65,18 @@ btnHotels.addEventListener("click", () => {
     ajoutGallerie(projectFiltrees)
 });
 
+const token = localStorage.token;
 
 
 
-const token = localStorage.getItem("token")
-console.log(token);
+const editPart = document.querySelectorAll('.edit')
+const btnFilter = document.querySelector('.btn-filter')
+if (token) {
+    editPart.forEach(editPart => {
+        editPart.style = "display: flex;"
+    })
+    btnFilter.style = "display:none;"
+}
+
+
 
