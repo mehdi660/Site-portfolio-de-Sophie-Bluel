@@ -18,7 +18,7 @@
 </head>
 
 <body>
-	<section class="edit">
+	<section class="edit edit-top">
 		<div class="edit-container"><button class="edit-btn"><i class="fa-solid fa-pen-to-square fa-fade edit-i"></i>
 				<p>Mode édition</p>
 			</button><button type="submit" class="publish-btn">publier les changements</button></div>
@@ -29,9 +29,9 @@
 			<ul>
 				<li>projets</li>
 				<li>contact</li>
-
-				<li>login</li>
-
+				<a href="login.html">
+					<li>login</li>
+				</a>
 				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 			</ul>
 		</nav>
@@ -41,7 +41,7 @@
 			<figure>
 				<img src="./assets/images/sophie-bluel.png" alt="">
 				<div class="figure-main">
-					<button><i class="fa-solid fa-pen-to-square fa-fade"></i>
+					<button class="edit"><i class="fa-solid fa-pen-to-square fa-fade"></i>
 						<p>modifier</p>
 					</button>
 				</div>
@@ -60,10 +60,12 @@
 		<section id="portfolio">
 			<div class="my-project">
 				<h2>Mes Projets</h2>
-				<button><i class="fa-solid fa-pen-to-square fa-fade"></i>
+				<button class="edit"><i class="fa-solid fa-pen-to-square fa-fade"></i>
 					modifier
 				</button>
+				<div class="overlay"></div>
 				<section class="modale modale-hide add-pic">
+					<i class="fa-regular fa-xmark"></i>
 					<div class="modale-container">
 						<h2>Galerie photo</h2>
 						<div class="picture">
@@ -75,7 +77,12 @@
 				</section>
 			</div>
 
-
+			<div class="btn-filter">
+				<button class="all">Tous</button>
+				<button class="object">Objets</button>
+				<button class="appart">Appartements</button>
+				<button class="hotel_and_restaurant">Hôtels & restaurants</button>
+			</div>
 			<div class="gallery">
 
 			</div>
