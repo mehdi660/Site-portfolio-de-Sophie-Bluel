@@ -65,17 +65,19 @@ btnHotels.addEventListener("click", () => {
     ajoutGallerie(projectFiltrees)
 });
 
+
+
+
 const token = localStorage.token;
-
-
-
 const editPart = document.querySelectorAll('.edit')
 const btnFilter = document.querySelector('.btn-filter')
+const login = document.querySelector('#login')
 if (token) {
     editPart.forEach(editPart => {
         editPart.style = "display: flex;"
     })
     btnFilter.style = "display:none;"
+    login.innerHTML = "<li>logout</li>"
 }
 
 
