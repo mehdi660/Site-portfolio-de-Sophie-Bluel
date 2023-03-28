@@ -14,21 +14,24 @@
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
-	<script type="module" src="./index.js"></script>
-	<script type="module" src="./login.js"></script>
+
 </head>
 
 <body>
+	<section class="edit">
+		<div class="edit-container"><button class="edit-btn"><i class="fa-solid fa-pen-to-square fa-fade edit-i"></i>
+				<p>Mode édition</p>
+			</button><button type="submit" class="publish-btn">publier les changements</button></div>
+	</section>
 	<header>
-
 		<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 		<nav>
 			<ul>
 				<li>projets</li>
 				<li>contact</li>
-				<a href="./login.html">
-					<li>login</li>
-				</a>
+
+				<li>login</li>
+
 				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 			</ul>
 		</nav>
@@ -37,6 +40,11 @@
 		<section id="introduction">
 			<figure>
 				<img src="./assets/images/sophie-bluel.png" alt="">
+				<div class="figure-main">
+					<button><i class="fa-solid fa-pen-to-square fa-fade"></i>
+						<p>modifier</p>
+					</button>
+				</div>
 			</figure>
 			<article>
 				<h2>Designer d'espace</h2>
@@ -50,15 +58,23 @@
 			</article>
 		</section>
 		<section id="portfolio">
-			<h2>Mes Projets</h2>
-			<div class="btn-containter">
-				<div class="btn-filter">
-					<button type="button" class="all">Tous</button>
-					<button type="button" class="object">Objets</button>
-					<button type="button" class="appart">Appartements</button>
-					<button type="button" class="hotel_and_restaurant">Hôtels & restaurants</button>
-				</div>
+			<div class="my-project">
+				<h2>Mes Projets</h2>
+				<button><i class="fa-solid fa-pen-to-square fa-fade"></i>
+					modifier
+				</button>
+				<section class="modale modale-hide add-pic">
+					<div class="modale-container">
+						<h2>Galerie photo</h2>
+						<div class="picture">
+
+						</div>
+						<button type="submit">Ajouter une photo</button>
+						<button type="submit">Supprimer la galerie</button>
+					</div>
+				</section>
 			</div>
+
 
 			<div class="gallery">
 
@@ -88,7 +104,8 @@
 		</nav>
 	</footer>
 
-
+	<script type="module" src="./index.js"></script>
+	<script type="module" src="./login.js"></script>
 </body>
 
 </html>

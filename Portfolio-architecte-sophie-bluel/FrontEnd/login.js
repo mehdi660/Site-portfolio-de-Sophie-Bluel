@@ -39,14 +39,12 @@ async function loginUser() {
 }
 
 // vérification de la présence du token dans le stockage local
-const token = localStorage.getItem("token")
+const token = localStorage.setItem("token")
 if (token) {
     // envoyer le token avec les requêtes à l'API
     fetch("http://localhost:5678/api/works", {
-
         headers: {
-            "Content-Type": "application/json",
-            // "Accept": 'application/json',
+            "Accept": 'application/json',
             'Authorization': `Bearer ${token}`
         }
     })
@@ -66,6 +64,12 @@ if (token) {
         })
 }
 
-
+function userLoged() {
+    if (token) {
+        localStorage.getItem('token')
+    } else {
+        localStorage.removeItem('token')
+    }
+}
 
 
