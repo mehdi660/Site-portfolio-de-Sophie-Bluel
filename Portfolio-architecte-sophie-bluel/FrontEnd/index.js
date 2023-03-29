@@ -66,19 +66,28 @@ btnHotels.addEventListener("click", () => {
 });
 
 
-
-
 const token = localStorage.token;
 const editPart = document.querySelectorAll('.edit')
+const editTop = document.querySelector('.edit-top')
 const btnFilter = document.querySelector('.btn-filter')
 const login = document.querySelector('#login')
 if (token) {
     editPart.forEach(editPart => {
         editPart.style = "display: flex;"
+        editTop.style = "display: block;"
     })
     btnFilter.style = "display:none;"
     login.innerHTML = "<li>logout</li>"
 }
+
+const logout = document.querySelector('#login')
+logout.addEventListener("click", () => {
+    if (token) {
+        localStorage.removeItem('token')
+    }
+});
+
+
 
 
 
