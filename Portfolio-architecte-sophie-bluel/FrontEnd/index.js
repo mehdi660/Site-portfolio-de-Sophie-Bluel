@@ -80,14 +80,30 @@ if (token) {
     login.innerHTML = "<li>logout</li>"
 }
 
-const logout = document.querySelector('#login')
-logout.addEventListener("click", () => {
+login.addEventListener("click", () => {
     if (token) {
         localStorage.removeItem('token')
     }
 });
 
 
+const editBtn = document.querySelector('.edit-project');
+const modale = document.querySelector('.modale');
+const overlay = document.querySelector('.overlay');
+editBtn.addEventListener("click", () => {
+    if (editBtn) {
+        modale.style = "display: block;"
+        overlay.style = "display: block;"
+    }
+})
 
 
-
+function closeModale() {
+    overlay.addEventListener("click", () => {
+        if (overlay) {
+            modale.style = "display: none;"
+            overlay.style = "display: none;"
+        }
+    })
+}
+closeModale()
