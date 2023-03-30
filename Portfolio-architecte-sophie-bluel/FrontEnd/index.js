@@ -90,6 +90,7 @@ login.addEventListener("click", () => {
 const editBtn = document.querySelector('.edit-project');
 const modale = document.querySelector('.modale');
 const overlay = document.querySelector('.overlay');
+const cross = document.querySelector('.cross')
 editBtn.addEventListener("click", () => {
     if (editBtn) {
         modale.style = "display: block;"
@@ -98,12 +99,17 @@ editBtn.addEventListener("click", () => {
 })
 
 
-function closeModale() {
-    overlay.addEventListener("click", () => {
-        if (overlay) {
-            modale.style = "display: none;"
-            overlay.style = "display: none;"
-        }
-    })
-}
-closeModale()
+
+overlay.addEventListener("click", () => {
+    if (overlay) {
+        modale.style = "display: none;"
+        overlay.style = "display: none;"
+    }
+})
+
+cross.addEventListener("click", () => {
+    if (cross) {
+        modale.style = "display: none;"
+        overlay.style = "display: none;"
+    }
+})
