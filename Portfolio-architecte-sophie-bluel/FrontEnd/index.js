@@ -78,6 +78,7 @@ if (token) {
     })
     btnFilter.style = "display:none;"
     login.innerHTML = "<li>logout</li>"
+
 }
 
 login.addEventListener("click", () => {

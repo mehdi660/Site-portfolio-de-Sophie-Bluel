@@ -452,6 +452,7 @@ footer nav ul {
 	height: 731px;
 	background-color: #fff;
 	border-radius: 10px;
+
 }
 
 
@@ -468,7 +469,7 @@ footer nav ul {
 	height: 100%;
 }
 
-.btn .edit {
+.edit {
 	display: none;
 }
 
@@ -501,6 +502,8 @@ footer nav ul {
 	flex-wrap: wrap;
 	height: 62%;
 	margin-bottom: 35px;
+	padding-left: 105.25;
+	padding-right: 105.19;
 }
 
 
@@ -547,6 +550,15 @@ footer nav ul {
 
 .add-pic:hover {
 	background-color: #1d615490;
-	border: 1px solid #1d615490;
+	border: none;
+}
 
+.delet-pic {
+	border: none;
+	background-color: #fff;
+	color: #D65353;
+	font-family: Syne, sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	cursor: pointer;
 }
