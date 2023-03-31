@@ -508,17 +508,38 @@ footer nav ul {
 	margin-top: 48px;
 }
 
+.picture {
+	position: relative;
+}
 
 .picture img {
 	width: 78.12px;
 	height: 104.08px;
 	margin-right: 10px;
-
-	/* position: relative; */
 }
 
 .picture p {
 	margin-bottom: 10px;
+}
+
+.picture i {
+	position: absolute;
+	right: 3.5px;
+	top: 2.5px;
+
+	color: #fff;
+	font-size: 12px;
+}
+
+.i-container {
+	background: #000000;
+	width: 17px;
+	height: 17px;
+	position: absolute;
+	right: 15px;
+	top: 7px;
+	border-radius: 2px;
+	cursor: pointer;
 }
 
 .picture-container::after {

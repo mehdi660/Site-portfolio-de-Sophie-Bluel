@@ -111,9 +111,9 @@ cross.addEventListener("click", () => {
 function ajoutGallerieModale(json) {
     const projectContainer = document.querySelector('.picture-container')
     projectContainer.textContent = '' // vider le contenu existant
-
     json.forEach(element => {
         const figure = `<figure class="picture">
+        <div class="i-container"><i class="fa-solid fa-trash-can" style="color: #fff;"></i></div>
             <img src=${element.imageUrl} alt=${element.title}>
             <p>éditer</p>
         </figure>`
