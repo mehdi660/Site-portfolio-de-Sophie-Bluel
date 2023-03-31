@@ -452,7 +452,6 @@ footer nav ul {
 	height: 731px;
 	background-color: #fff;
 	border-radius: 10px;
-
 }
 
 
@@ -461,12 +460,16 @@ footer nav ul {
 	color: #000000;
 	font-weight: 400;
 	font-size: 26px;
-	margin-top: 60px;
+	margin-top: 50px;
 }
 
 .modale-container {
 	width: 100%;
 	height: 100%;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
 }
 
 .edit {
@@ -500,17 +503,19 @@ footer nav ul {
 .picture-container {
 	display: flex;
 	flex-wrap: wrap;
-	height: 62%;
+	flex-direction: row;
+	width: 70%;
 	margin-bottom: 35px;
-	padding-left: 105.25;
-	padding-right: 105.19;
+	margin-top: 48px;
 }
 
 
-.picture {
+.picture img {
 	width: 78.12px;
 	height: 104.08px;
-	position: relative;
+	margin-right: 10px;
+	margin-bottom: 15px;
+	/* position: relative; */
 }
 
 .picture-container::after {
@@ -524,12 +529,14 @@ footer nav ul {
 	left: 105px;
 }
 
+
 .btn-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-end;
 	width: 100%;
+	margin-top: 115px;
 }
 
 .add-pic {

@@ -92,14 +92,6 @@ const editBtn = document.querySelector('.edit-project');
 const modale = document.querySelector('.modale');
 const overlay = document.querySelector('.overlay');
 const cross = document.querySelector('.cross')
-editBtn.addEventListener("click", () => {
-    if (editBtn) {
-        modale.style = "display: block;"
-        overlay.style = "display: block;"
-    }
-})
-
-
 
 overlay.addEventListener("click", () => {
     if (overlay) {
@@ -114,3 +106,36 @@ cross.addEventListener("click", () => {
         overlay.style = "display: none;"
     }
 })
+
+
+function ajoutGallerieModale(json) {
+    json.forEach(element => {
+        const figure = `<figure class="picture">
+            <img src=${element.imageUrl} alt=${element.title}>
+            <p>éditer</p>
+        </figure>`
+        const projectContainer = document.querySelector('.picture-container')
+        projectContainer.innerHTML = figure + projectContainer.innerHTML
+
+    });
+}
+
+editBtn.addEventListener("click", async () => {
+    if (editBtn) {
+        try {
+            const response = await fetch("http://localhost:5678/api/works")
+            const json = await response.json()
+            ajoutGallerieModale(json)
+        } catch (error) {
+            console.log(error);
+        }
+        modale.style = "display: flex;"
+        overlay.style = "display: block;"
+    }
+})
+
+
+
+
+
+
