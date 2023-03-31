@@ -460,7 +460,6 @@ footer nav ul {
 	color: #000000;
 	font-weight: 400;
 	font-size: 26px;
-	margin-top: 50px;
 }
 
 .modale-container {
@@ -514,8 +513,12 @@ footer nav ul {
 	width: 78.12px;
 	height: 104.08px;
 	margin-right: 10px;
-	margin-bottom: 15px;
+
 	/* position: relative; */
+}
+
+.picture p {
+	margin-bottom: 10px;
 }
 
 .picture-container::after {
@@ -536,7 +539,7 @@ footer nav ul {
 	align-items: center;
 	justify-content: flex-end;
 	width: 100%;
-	margin-top: 115px;
+	margin-top: 43px;
 }
 
 .add-pic {

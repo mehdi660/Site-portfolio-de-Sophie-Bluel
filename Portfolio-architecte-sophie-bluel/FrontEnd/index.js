@@ -109,14 +109,16 @@ cross.addEventListener("click", () => {
 
 
 function ajoutGallerieModale(json) {
+    const projectContainer = document.querySelector('.picture-container')
+    projectContainer.textContent = '' // vider le contenu existant
+
     json.forEach(element => {
         const figure = `<figure class="picture">
             <img src=${element.imageUrl} alt=${element.title}>
             <p>éditer</p>
         </figure>`
-        const projectContainer = document.querySelector('.picture-container')
-        projectContainer.innerHTML = figure + projectContainer.innerHTML
 
+        projectContainer.innerHTML += figure // ajouter chaque image
     });
 }
 
