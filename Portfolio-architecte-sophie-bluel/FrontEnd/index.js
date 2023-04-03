@@ -1,4 +1,3 @@
-
 const gallery = document.querySelector(".gallery")
 let category = window.localStorage.getItem('categoryId')
 let elementTableau;
@@ -10,6 +9,7 @@ async function getWork() {
         const json = await response.json()
         elementTableau = json
         ajoutGallerie(json)
+        console.log(elementTableau);
     } catch (error) {
         console.log(error);
     }
@@ -42,6 +42,7 @@ btnAll.addEventListener("click", () => {
     ajoutGallerie(projectFiltrees)
 });
 
+
 btnObject.addEventListener("click", () => {
     const projectFiltrees = elementTableau.filter(el => el.categoryId === 1)
     console.log(projectFiltrees);
@@ -55,7 +56,6 @@ btnAppart.addEventListener("click", () => {
     document.querySelector(".gallery").innerHTML = "";
     ajoutGallerie(projectFiltrees)
 });
-
 
 
 btnHotels.addEventListener("click", () => {
@@ -135,9 +135,3 @@ editBtn.addEventListener("click", async () => {
         overlay.style = "display: block;"
     }
 })
-
-
-
-
-
-
