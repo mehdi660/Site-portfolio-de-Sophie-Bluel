@@ -135,3 +135,5 @@ editBtn.addEventListener("click", async () => {
         overlay.style = "display: block;"
     }
 })
+
+const deletBtn = document.querySelectorAll('.i-container')
