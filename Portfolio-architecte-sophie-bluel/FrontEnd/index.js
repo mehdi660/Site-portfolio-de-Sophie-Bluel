@@ -113,14 +113,31 @@ function ajoutGallerieModale(json) {
     projectContainer.textContent = '' // vider le contenu existant
     json.forEach(element => {
         const figure = `<figure class="picture">
-        <div class="i-container"><i class="fa-solid fa-trash-can" style="color: #fff;"></i></div>
-            <img src=${element.imageUrl} alt=${element.title}>
+        <div class="i-container"><i id=${element.id} class="fa-solid fa-trash-can corbeil" style="color: #fff;"></i></div>
+            <img class="img-delete" src=${element.imageUrl} alt=${element.title}>
             <p>éditer</p>
         </figure>`
 
         projectContainer.innerHTML += figure // ajouter chaque image
     });
+    const deleteBtns = document.querySelectorAll(".corbeil");
+const btns = [...deleteBtns]
+
+btns.forEach(btn => btn.addEventListener("click", () => deletWorks(btn.id) ))
 }
+
+async function deletWorks(id) {
+    console.log(id);
+       const response =  await fetch ("http://"+ window.location.hostname +`:5678/api/works/${id}`, {
+          method: "DELETE",
+          headers: {
+              accept: "*/*",
+              Authorization: `Bearer ${token}`
+          }
+        });
+}
+
+
 
 editBtn.addEventListener("click", async () => {
     if (editBtn) {
@@ -136,80 +153,6 @@ editBtn.addEventListener("click", async () => {
     }
 })
 
-const figure = `<figure class="picture">
-  <div class="i-container"><i class="fa-solid fa-trash-can" style="color: #fff;"></i></div>
-  <img src=${element.imageUrl} alt=${element.title} id="image-${element.id}">
-  <p>éditer</p>
-</figure>`
-
-const deleteBtns = document.querySelectorAll('.fa-trash-can')
-deleteBtns.forEach(btn => {
-    btn.addEventListener('click', async () => {
-        const imageId = btn.parentNode.nextSibling.id.split('-')[1]
-        await fetch(`http://localhost:5678/api/works/${imageId}`, {
-            method: 'DELETE',
-            headers: {
-                "Accept": 'application/json',
-                'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY4MDYwODQ3NSwiZXhwIjoxNjgwNjk0ODc1fQ.z43GTYpUF3KpUwm-twzpuIL6A91n3V6MxCCWSpxKBJo`
-            }
-        })
-            .then(response => {
-                if (response.ok) {
-                    console.log("c'est ok");
-                    return response.json();
-                } else {
-                    throw new Error('Erreur lors de la suppression.')
-                }
-            })
-            .then(data => {
-                // supprimez l'élément du DOM
-                const imageElement = document.getElementById(`image-${imageId}`)
-                imageElement.parentNode.parentNode.removeChild(imageElement.parentNode)
-            })
-            .catch(error => {
-                console.log(error);
-                alert(error.message)
-            })
-    })
-})
 
 
-
-
-
-// const deleteBtns = document.querySelectorAll('.i-container');
-
-// deleteBtns.forEach(btn => {
-//     btn.addEventListener("click", async () => {
-//         // Récupérer l'ID de l'élément à supprimer
-//         const id = // récupérer l'ID de l'élément à partir de son parent
-
-//             await fetch(`http://localhost:5678/api/works/${id}`, {
-//                 method: 'DELETE',
-//                 headers: {
-//                     "Accept": 'application/json',
-//                     'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY4MDYwODQ3NSwiZXhwIjoxNjgwNjk0ODc1fQ.z43GTYpUF3KpUwm-twzpuIL6A91n3V6MxCCWSpxKBJo`
-//                 }
-//             })
-//                 .then(response => {
-//                     if (response.ok) {
-//                         console.log("c'est ok");
-//                         return response.json();
-//                     } else {
-//                         throw new Error('Erreur lors de la suprression.')
-//                     }
-//                 })
-//                 .then(data => {
-//                     // Actualiser la galerie après la suppression de l'élément
-//                     getWork();
-//                     // Fermer la modale après la suppression de l'élément
-//                     modale.style.display = "none";
-//                     overlay.style.display = "none";
-//                 })
-//                 .catch(error => {
-//                     console.log(error);
-//                     alert('error.message')
-//                 })
-//     });
-// });
 
