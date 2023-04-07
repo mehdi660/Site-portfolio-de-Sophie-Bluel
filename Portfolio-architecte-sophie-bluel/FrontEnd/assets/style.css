@@ -596,3 +596,30 @@ footer nav ul {
 	font-weight: 400;
 	cursor: pointer;
 }
+
+.modale-add {
+	display: flex;
+	z-index: 1000;
+	position: absolute;
+	top: 550px;
+	left: 250px;
+	width: 630px;
+	background-color: #bc6a6a;
+	border-radius: 10px;
+	padding: 30px;
+	min-height: 600px;
+	flex-direction: column;
+}
+
+
+.arrow-left{
+	position:absolute;
+	left: 30px;
+	top: 30px;
+}
+
+.cross-add{
+	position: absolute;
+	top: 30px;
+	right: 30px;
+}
