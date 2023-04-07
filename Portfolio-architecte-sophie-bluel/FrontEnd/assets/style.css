@@ -598,13 +598,13 @@ footer nav ul {
 }
 
 .modale-add {
-	display: flex;
+	display: none;
 	z-index: 1000;
 	position: absolute;
 	top: 550px;
 	left: 250px;
 	width: 630px;
-	background-color: #bc6a6a;
+	background-color: #FFFFFF;
 	border-radius: 10px;
 	padding: 30px;
 	/* min-height: 600px; */
@@ -617,12 +617,14 @@ footer nav ul {
 	position:absolute;
 	left: 30px;
 	top: 30px;
+	cursor: pointer;
 }
 
 .cross-add{
 	position: absolute;
 	top: 30px;
 	right: 30px;
+	cursor: pointer;
 }
 
 .modale-add h2{
@@ -653,6 +655,7 @@ footer nav ul {
 	height: 46px;
 	margin-top: 28px;
 	margin-bottom: 21px;
+	
 }
 
 .addPic{
@@ -668,6 +671,9 @@ footer nav ul {
 	cursor: pointer;
 	transition: all ease-in-out 0.2s;
 	margin-bottom: 7px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .addPic:hover{
@@ -676,15 +682,68 @@ footer nav ul {
 
 #addPic{
 	display: none;
+
 }
 
 .add-a-pic p{
 	margin-bottom: 19px;
 }
 
-
+.form-container{
+	margin-top: 30px;
+	margin-bottom: 80px;
+}
 
 .form-container form{
 	display: flex;
 	flex-direction: column;
+}
+
+.form-container::after {
+	position: absolute;
+	content: "";
+	width: 420px;
+	height: 2px;
+	background-color: #B3B3B3;
+	bottom: 92px;
+	right: 135px;
+	margin-bottom: 32px;
+}
+
+#text{
+	width: 420px;
+	height: 31px;
+	border: none;
+	background: #FFFFFF;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	margin-bottom: 47px;
+	margin-top: 5px;
+}
+
+#category{
+	margin-top: 5px;
+}
+
+.form-container select{
+	width: 424px;
+	height: 31px;
+	border: none;
+	background: #FFFFFF;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+.btn-submit{
+	background: #A7A7A7;
+    color: #fff;
+    font-family: syne, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    font-style: normal;
+    width: 237px;
+    height: 37px;
+    border-radius: 60px;
+	cursor: not-allowed;
+    border: 1px solid #A7A7A7;
+    transition: all ease-in-out 0.2s;
+    margin-bottom: 23px;
 }

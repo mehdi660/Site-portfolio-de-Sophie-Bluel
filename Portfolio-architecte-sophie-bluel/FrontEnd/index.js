@@ -92,11 +92,14 @@ const editBtn = document.querySelector('.edit-project');
 const modale = document.querySelector('.modale');
 const overlay = document.querySelector('.overlay');
 const cross = document.querySelector('.cross')
+const modaleAdd = document.querySelector('.modale-add')
+const closeMod = document.querySelector('.cross-add')
 
 overlay.addEventListener("click", () => {
     if (overlay) {
         modale.style = "display: none;"
         overlay.style = "display: none;"
+        modaleAdd.style = "display: none;"
     }
 })
 
@@ -104,6 +107,14 @@ cross.addEventListener("click", () => {
     if (cross) {
         modale.style = "display: none;"
         overlay.style = "display: none;"
+    }
+})
+
+closeMod.addEventListener("click", () => {
+    if (closeMod) {
+        modale.style = "display: none;"
+        overlay.style = "display: none;"
+        modaleAdd.style = "display: none;"
     }
 })
 
@@ -149,6 +160,25 @@ editBtn.addEventListener("click", async () => {
         }
         modale.style = "display: flex;"
         overlay.style = "display: block;"
+    }
+})
+
+const addPic = document.querySelector('.add-pic')
+const arrowLeft = document.querySelector('.arrow-left')
+
+
+
+arrowLeft.addEventListener('click', () => {
+    if (arrowLeft) {
+        modale.style = "display: flex;"
+        overlay.style = "display: block;"
+        modaleAdd.style = "display: none;"
+    }
+})
+
+addPic.addEventListener('click', () => {
+    if (addPic) {
+        modaleAdd.style = "display: flex;"
     }
 })
 
