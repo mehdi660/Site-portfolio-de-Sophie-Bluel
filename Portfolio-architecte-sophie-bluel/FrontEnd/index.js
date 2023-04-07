@@ -9,7 +9,6 @@ async function getWork() {
         const json = await response.json()
         elementTableau = json
         ajoutGallerie(json)
-        console.log(elementTableau);
     } catch (error) {
         console.log(error);
     }
@@ -181,6 +180,8 @@ addPic.addEventListener('click', () => {
         modaleAdd.style = "display: flex;"
     }
 })
+
+
 
 
 
