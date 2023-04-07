@@ -607,10 +607,11 @@ footer nav ul {
 	background-color: #bc6a6a;
 	border-radius: 10px;
 	padding: 30px;
-	min-height: 600px;
+	/* min-height: 600px; */
 	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
-
 
 .arrow-left{
 	position:absolute;
@@ -622,4 +623,68 @@ footer nav ul {
 	position: absolute;
 	top: 30px;
 	right: 30px;
+}
+
+.modale-add h2{
+	margin: 0;
+	font-family: Work Sans, sans-serif;
+	color: #000000;
+	font-weight: 400;
+	font-size: 26px;
+}
+
+.add-a-pic{
+	margin-top: 6px;
+	background: #E8F1F7;
+	border-radius: 3px;
+	width: 420px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	/* padding-top: 28px;
+	padding-bottom: 19px; */
+}
+
+.add-a-pic i{
+	font-size: 60px;
+	color: #B9C5CC;
+	width: 58px;
+	height: 46px;
+	margin-top: 28px;
+	margin-bottom: 21px;
+}
+
+.addPic{
+	width: 137px;
+	height: 36px;
+	background: #CBD6DC;
+	border-radius: 50px;
+	border: none;
+	font-family:Work Sans, sans-serif;
+	font-weight: 500;
+	font-size: 14px;
+	color: #306685;
+	cursor: pointer;
+	transition: all ease-in-out 0.2s;
+	margin-bottom: 7px;
+}
+
+.addPic:hover{
+	background: #93bed5;
+}
+
+#addPic{
+	display: none;
+}
+
+.add-a-pic p{
+	margin-bottom: 19px;
+}
+
+
+
+.form-container form{
+	display: flex;
+	flex-direction: column;
 }
