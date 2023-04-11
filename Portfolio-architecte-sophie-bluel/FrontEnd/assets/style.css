@@ -613,6 +613,8 @@ footer nav ul {
 	justify-content: center;
 }
 
+
+
 .arrow-left{
 	position:absolute;
 	left: 30px;
@@ -634,6 +636,11 @@ footer nav ul {
 	font-weight: 400;
 	font-size: 26px;
 }
+
+/* .form-add{
+	display: flex;
+	align-items: center;
+} */
 
 .add-a-pic{
 	margin-top: 6px;
@@ -699,17 +706,6 @@ footer nav ul {
 	flex-direction: column;
 }
 
-.form-container::after {
-	position: absolute;
-	content: "";
-	width: 420px;
-	height: 2px;
-	background-color: #B3B3B3;
-	bottom: 92px;
-	right: 135px;
-	margin-bottom: 32px;
-}
-
 #text{
 	width: 420px;
 	height: 31px;
@@ -745,5 +741,17 @@ footer nav ul {
 	cursor: not-allowed;
     border: 1px solid #A7A7A7;
     transition: all ease-in-out 0.2s;
-    margin-bottom: 23px;
+	margin-top: 99px;
+	margin-left: 80px;
+}
+
+.btn-submit::before {
+	position: absolute;
+	content: "";
+	width: 420px;
+	height: 2px;
+	background-color: #B3B3B3;
+	bottom: 193px;
+	right: 135px;
+	/* margin-bottom: 32px; */
 }

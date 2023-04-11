@@ -33,7 +33,7 @@ const btnAppart = document.querySelector(".appart");
 const btnHotels = document.querySelector(".hotel_and_restaurant");
 
 
-
+// TODO Factoriser et mettre dans une fonction 
 btnAll.addEventListener("click", () => {
     const projectFiltrees = elementTableau.filter(el => el.categoryId)
     console.log(projectFiltrees);
@@ -63,6 +63,8 @@ btnHotels.addEventListener("click", () => {
     document.querySelector(".gallery").innerHTML = "";
     ajoutGallerie(projectFiltrees)
 });
+
+
 
 
 const token = localStorage.token;
@@ -182,6 +184,15 @@ addPic.addEventListener('click', () => {
 })
 
 
+// TODO
+// var uploadField = document.getElementById("file");
+
+// uploadField.onchange = function() {
+//     if(this.files[0].size > 4096 peu etre multiplié par 8){
+//        alert("File is too big!");
+//        this.value = "";
+//     };
+// }
 
 
 
