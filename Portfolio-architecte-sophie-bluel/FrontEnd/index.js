@@ -17,6 +17,7 @@ async function getWork() {
 getWork()
 
 function ajoutGallerie(json) {
+    console.log(json);
     json.forEach(element => {
         const figure = `<figure>
 				<img src=${element.imageUrl} alt=${element.title}>
@@ -124,6 +125,7 @@ function ajoutGallerieModale(json) {
     const projectContainer = document.querySelector('.picture-container')
     projectContainer.textContent = '' // vider le contenu existant
     json.forEach(element => {
+        console.log(element);
         const figure = `<figure class="picture">
         <div class="i-container"><i id=${element.id} class="fa-solid fa-trash-can corbeil" style="color: #fff;"></i></div>
             <img class="img-delete" src=${element.imageUrl} alt=${element.title}>
@@ -184,15 +186,59 @@ addPic.addEventListener('click', () => {
 })
 
 
-// TODO
-// var uploadField = document.getElementById("file");
 
-// uploadField.onchange = function() {
-//     if(this.files[0].size > 4096 peu etre multiplié par 8){
-//        alert("File is too big!");
-//        this.value = "";
-//     };
-// }
+
+
+let uploadField = document.getElementById("addPic");
+
+uploadField.onchange = function() {
+    if(this.files[0].size > 4096){
+       alert("Le fichier est trop gros!");
+       this.value = "";
+    };
+}
+
+
+
+
+const selectCategory = document.querySelector("#categorySelect");
+
+async function fetchCategories() {
+  try {
+    const response = await fetch("http://localhost:5678/api/categories");
+    const categories = await response.json();
+    // Parcours du tableau de catégories et génération des options du select
+    categories.forEach(category => {
+      const option = document.createElement("option");
+      option.value = category.id; 
+      option.text = category.name;
+      selectCategory.add(option);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+fetchCategories();
+
+document.querySelector('.form-add').addEventListener('submit', function(event) {
+    event.preventDefault(); // Empêcher la soumission du formulaire
+
+    // Vérifier si le formulaire est bien rempli
+    let title = document.getElementById('text').value;
+    let category = document.getElementById('categorySelect').value;
+
+    if (title && category && uploadField) {
+        // Supprimer la classe "btn-submit" du bouton de soumission
+        document.querySelector('.btn-submit').classList.remove('btn-submit');
+
+        // Soumettre le formulaire
+        event.target.submit();
+    }
+});
+
+
+
 
 
 

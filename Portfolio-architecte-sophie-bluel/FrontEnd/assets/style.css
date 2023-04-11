@@ -728,6 +728,28 @@ footer nav ul {
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
+.btn-submit-ok{
+	background: #1D6154;
+    color: #fff;
+    font-family: syne, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    font-style: normal;
+    width: 237px;
+    height: 37px;
+    border-radius: 60px;
+	cursor: pointer;
+    border: 1px solid #1D6154;
+    transition: all ease-in-out 0.2s;
+	margin-top: 99px;
+	margin-left: 80px;
+	transition: all 0.3s ease-in-out;
+}
+
+.btn-submit-ok:hover{
+	transform: translateX(0.2);
+}
+
 .btn-submit{
 	background: #A7A7A7;
     color: #fff;
@@ -755,3 +777,4 @@ footer nav ul {
 	right: 135px;
 	/* margin-bottom: 32px; */
 }
+
