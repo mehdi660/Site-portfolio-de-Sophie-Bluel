@@ -244,18 +244,32 @@ fetchCategories();
 
 
 const formAdd = document.querySelector('.form-add')
-
-
 formAdd.addEventListener("submit", AddPicture)
+const titleForm = document.querySelector('#text')
+const categoryForm = document.querySelector('#categorySelect')
+const addAPic = document.querySelector('#addPic')
 
-function AddPicture(e) {
+async function AddPicture(e) {
     e.preventDefault()
-    const formData = new FormData(formAdd);
-    const titleForm = formData.get('title')
-    const categoryForm = formData.get('category')
-    const fileForm = formData.get('addPic')
-    console.log('picture', {titleForm,categoryForm,fileForm });
+    const image = addAPic.files[0]
+    console.log(image);
+    const categorie = categoryForm.value;
+    const title = titleForm.value;
+    const formData = new FormData();
+    formData.append('image', image)
+    formData.append('category', categorie)
+    formData.append('title', title)
+    console.log('picture', { title, image, categorie });
+    const reponse = await fetch('http://localhost:5678/api/works', {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+        },
+        body: formData
+    })
 }
+
+
 
 
 
