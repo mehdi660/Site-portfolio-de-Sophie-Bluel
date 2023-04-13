@@ -227,13 +227,16 @@ document.querySelector('.form-add').addEventListener('submit', function(event) {
     // Vérifier si le formulaire est bien rempli
     let title = document.getElementById('text').value;
     let category = document.getElementById('categorySelect').value;
+    let addFile = document.getElementById('addPic').value;
 
-    if (title && category && uploadField) {
+    if (title && category && addFile) {
         // Supprimer la classe "btn-submit" du bouton de soumission
         document.querySelector('.btn-submit').classList.remove('btn-submit');
 
         // Soumettre le formulaire
         event.target.submit();
+    }else {
+        alert('Tout les champs ne sont pas bien rempli!')
     }
 });
 
