@@ -135,20 +135,20 @@ function ajoutGallerieModale(json) {
         projectContainer.innerHTML += figure // ajouter chaque image
     });
     const deleteBtns = document.querySelectorAll(".corbeil");
-const btns = [...deleteBtns]
+    const btns = [...deleteBtns]
 
-btns.forEach(btn => btn.addEventListener("click", () => deletWorks(btn.id) ))
+    btns.forEach(btn => btn.addEventListener("click", () => deletWorks(btn.id)))
 }
 
 async function deletWorks(id) {
     console.log(id);
-       const response =  await fetch ("http://"+ window.location.hostname +`:5678/api/works/${id}`, {
-          method: "DELETE",
-          headers: {
-              accept: "*/*",
-              Authorization: `Bearer ${token}`
-          }
-        });
+    const response = await fetch("http://" + window.location.hostname + `:5678/api/works/${id}`, {
+        method: "DELETE",
+        headers: {
+            accept: "*/*",
+            Authorization: `Bearer ${token}`
+        }
+    });
 }
 
 
@@ -191,10 +191,10 @@ addPic.addEventListener('click', () => {
 
 let uploadField = document.getElementById("addPic");
 
-uploadField.onchange = function() {
-    if(this.files[0].size > 4096){
-       alert("Le fichier est trop gros!");
-       this.value = "";
+uploadField.onchange = function () {
+    if (this.files[0].size > 4096) {
+        alert("Le fichier est trop gros!");
+        this.value = "";
     };
 }
 
@@ -204,41 +204,59 @@ uploadField.onchange = function() {
 const selectCategory = document.querySelector("#categorySelect");
 
 async function fetchCategories() {
-  try {
-    const response = await fetch("http://localhost:5678/api/categories");
-    const categories = await response.json();
-    // Parcours du tableau de catégories et génération des options du select
-    categories.forEach(category => {
-      const option = document.createElement("option");
-      option.value = category.id; 
-      option.text = category.name;
-      selectCategory.add(option);
-    });
-  } catch (error) {
-    console.log(error);
-  }
+    try {
+        const response = await fetch("http://localhost:5678/api/categories");
+        const categories = await response.json();
+        // Parcours du tableau de catégories et génération des options du select
+        categories.forEach(category => {
+            const option = document.createElement("option");
+            option.value = category.id;
+            option.text = category.name;
+            selectCategory.add(option);
+        });
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 fetchCategories();
 
-document.querySelector('.form-add').addEventListener('submit', function(event) {
-    event.preventDefault(); // Empêcher la soumission du formulaire
+// document.querySelector('.form-add').addEventListener('submit', function (event) {
+//     event.preventDefault(); // Empêcher la soumission du formulaire
 
-    // Vérifier si le formulaire est bien rempli
-    let title = document.getElementById('text').value;
-    let category = document.getElementById('categorySelect').value;
-    let addFile = document.getElementById('addPic').value;
+//     // Vérifier si le formulaire est bien rempli
+//     let title = document.getElementById('text').value;
+//     let category = document.getElementById('categorySelect').value;
+//     let addFile = document.getElementById('addPic').value;
 
-    if (title && category && addFile) {
-        // Supprimer la classe "btn-submit" du bouton de soumission
-        document.querySelector('.btn-submit').classList.remove('btn-submit');
+//     if (title && category && addFile) {
+//         // Supprimer la classe "btn-submit" du bouton de soumission
+//         document.querySelector('.btn-submit').classList.remove('btn-submit');
+//         // Soumettre le formulaire
+//         event.target.submit();
+//     } else {
+//         alert('Tout les champs ne sont pas bien rempli!')
+//     }
+// });
 
-        // Soumettre le formulaire
-        event.target.submit();
-    }else {
-        alert('Tout les champs ne sont pas bien rempli!')
-    }
-});
+
+
+
+
+const formAdd = document.querySelector('.form-add')
+
+
+formAdd.addEventListener("submit", AddPicture)
+
+function AddPicture(e) {
+    e.preventDefault()
+    const formData = new FormData(formAdd);
+    const titleForm = formData.get('title')
+    const categoryForm = formData.get('category')
+    const fileForm = formData.get('addPic')
+    console.log('picture', {titleForm,categoryForm,fileForm });
+}
+
 
 
 
