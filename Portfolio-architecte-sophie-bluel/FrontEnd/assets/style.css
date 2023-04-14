@@ -727,7 +727,7 @@ margin-bottom: 30px;
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-.btn-submit-ok{
+/* .btn-submit-ok{
 	background: #1D6154;
     color: #fff;
     font-family: syne, sans-serif;
@@ -743,7 +743,7 @@ margin-bottom: 30px;
 	margin-top: 99px;
 	margin-left: 80px;
 	transition: all 0.3s ease-in-out;
-}
+} */
 
 .btn-submit-ok:hover{
 	transform: translateX(0.2);

@@ -225,15 +225,13 @@ fetchCategories();
 //     event.preventDefault(); // Empêcher la soumission du formulaire
 
 //     // Vérifier si le formulaire est bien rempli
-//     let title = document.getElementById('text').value;
-//     let category = document.getElementById('categorySelect').value;
-//     let addFile = document.getElementById('addPic').value;
+//     let title = document.querySelector('#text').value;
+//     let category = document.querySelector('#categorySelect').value;
+//     let addFile = document.querySelector('#addPic').value;
 
 //     if (title && category && addFile) {
 //         // Supprimer la classe "btn-submit" du bouton de soumission
 //         document.querySelector('.btn-submit').classList.remove('btn-submit');
-//         // Soumettre le formulaire
-//         event.target.submit();
 //     } else {
 //         alert('Tout les champs ne sont pas bien rempli!')
 //     }
@@ -248,18 +246,31 @@ formAdd.addEventListener("submit", AddPicture)
 const titleForm = document.querySelector('#text')
 const categoryForm = document.querySelector('#categorySelect')
 const addAPic = document.querySelector('#addPic')
+const submitBtn = document.querySelector('.btn-submit')
+
+
+formAdd.addEventListener("change", (event) => {
+  event.preventDefault(); // Empêcher la soumission du formulaire
+  if (titleForm !== "" && categoryForm !== "") {
+    submitBtn.style.background = "#1D6154";
+    submitBtn.style.cursor = "pointer";
+
+  } else {
+    // Afficher un message d'erreur ou effectuer d'autres actions si les champs ne sont pas bien remplis
+    alert("Veuillez remplir tous les champs du formulaire.");
+  }
+});
+
 
 async function AddPicture(e) {
     e.preventDefault()
     const image = addAPic.files[0]
-    console.log(image);
     const categorie = categoryForm.value;
     const title = titleForm.value;
     const formData = new FormData();
     formData.append('image', image)
     formData.append('category', categorie)
     formData.append('title', title)
-    console.log('picture', { title, image, categorie });
     const reponse = await fetch('http://localhost:5678/api/works', {
         method: 'POST',
         headers: {
