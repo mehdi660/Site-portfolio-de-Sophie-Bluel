@@ -125,7 +125,6 @@ function ajoutGallerieModale(json) {
     const projectContainer = document.querySelector('.picture-container')
     projectContainer.textContent = '' // vider le contenu existant
     json.forEach(element => {
-        console.log(element);
         const figure = `<figure class="picture">
         <div class="i-container"><i id=${element.id} class="fa-solid fa-trash-can corbeil" style="color: #fff;"></i></div>
             <img class="img-delete" src=${element.imageUrl} alt=${element.title}>
@@ -187,8 +186,6 @@ addPic.addEventListener('click', () => {
 
 
 
-
-
 let uploadField = document.getElementById("addPic");
 
 uploadField.onchange = function () {
@@ -197,8 +194,6 @@ uploadField.onchange = function () {
         this.value = "";
     };
 }
-
-
 
 
 const selectCategory = document.querySelector("#categorySelect");
@@ -221,25 +216,6 @@ async function fetchCategories() {
 
 fetchCategories();
 
-// document.querySelector('.form-add').addEventListener('submit', function (event) {
-//     event.preventDefault(); // Empêcher la soumission du formulaire
-
-//     // Vérifier si le formulaire est bien rempli
-//     let title = document.querySelector('#text').value;
-//     let category = document.querySelector('#categorySelect').value;
-//     let addFile = document.querySelector('#addPic').value;
-
-//     if (title && category && addFile) {
-//         // Supprimer la classe "btn-submit" du bouton de soumission
-//         document.querySelector('.btn-submit').classList.remove('btn-submit');
-//     } else {
-//         alert('Tout les champs ne sont pas bien rempli!')
-//     }
-// });
-
-
-
-
 
 const formAdd = document.querySelector('.form-add')
 formAdd.addEventListener("submit", AddPicture)
@@ -257,6 +233,7 @@ formAdd.addEventListener("change", (event) => {
 
   } else {
     // Afficher un message d'erreur ou effectuer d'autres actions si les champs ne sont pas bien remplis
+    submitBtn.style.backgroundColor = "";
     alert("Veuillez remplir tous les champs du formulaire.");
   }
 });
