@@ -238,6 +238,18 @@ formAdd.addEventListener("change", (event) => {
   }
 });
 
+let imgPreview = ""
+
+const previewImg = document.querySelector(".import-pictures")
+function addImg () {
+    addAPic.addEventListener("input" , (e) => {
+        imgPreview = e.target.files[0];
+        const img = URL.createObjectURL(addAPic.files[0]);
+        previewImg.src = img;
+        previewImg.style.setProperty("visibility", "visible");
+    })
+}
+
 
 async function AddPicture(e) {
     e.preventDefault()
@@ -259,8 +271,7 @@ async function AddPicture(e) {
 
 
 
-
-
+addImg()
 
 
 
