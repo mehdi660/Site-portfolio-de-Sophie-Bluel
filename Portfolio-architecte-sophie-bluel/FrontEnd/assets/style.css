@@ -406,6 +406,7 @@ footer nav ul {
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
+	color: #FFFFFF;
 }
 
 .publish-btn {
@@ -746,7 +747,7 @@ margin-bottom: 30px;
 } */
 
 .btn-submit-ok:hover{
-	transform: translateX(0.2);
+	transform: translateX(0.2px);
 }
 
 .btn-submit{
