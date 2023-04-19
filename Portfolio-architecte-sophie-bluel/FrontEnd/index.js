@@ -68,6 +68,8 @@ btnHotels.addEventListener("click", () => {
 
 
 
+
+
 const token = localStorage.token;
 const editPart = document.querySelectorAll('.edit')
 const editTop = document.querySelector('.edit-top')
@@ -238,8 +240,9 @@ formAdd.addEventListener("change", (event) => {
   }
 });
 
-let imgPreview = ""
 
+// construir limage de façon dynamique
+let imgPreview = ""
 const previewImg = document.querySelector(".import-pictures")
 function addImg () {
     addAPic.addEventListener("input" , (e) => {
@@ -273,6 +276,26 @@ async function AddPicture(e) {
 
 addImg()
 
+
+// function btnTransition(){
+//     const allBtn = document.querySelectorAll(".btn");
+//     allBtn.forEach(item => {
+//         item.addEventListener("click", () => {
+//             const elemId = item.id.replace("btn_","");
+//             console.log(elemId);
+//             let projectFiltrees;
+//             if(elemId!=""){
+//                  projectFiltrees = elementTableau.filter(el => el.categoryId == elemId)
+//             }else{
+//                  projectFiltrees = elementTableau.filter(el => el.categoryId)
+//             }
+//             document.querySelector(".gallery").innerHTML = "";
+//             ajoutGallerie(projectFiltrees)
+//         });
+//     });
+// }
+
+// btnTransition();
 
 
 
