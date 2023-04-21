@@ -241,17 +241,23 @@ formAdd.addEventListener("change", (event) => {
 });
 
 
-// construir limage de façon dynamique
-let imgPreview = ""
-const previewImg = document.querySelector(".import-pictures")
-function addImg () {
-    addAPic.addEventListener("input" , (e) => {
+let imgPreview = "";
+const divImg = document.querySelector('.preview-image');
+
+function addImg() {
+    const addAPic = document.getElementById("addPic"); 
+    addAPic.addEventListener("change", (e) => { //"change" pour détecter les modifications dans un élément de type file
         imgPreview = e.target.files[0];
         const img = URL.createObjectURL(addAPic.files[0]);
+        const previewImg = document.createElement("img"); // Créez un nouvel élément img
+        previewImg.className = "import-pictures"; 
         previewImg.src = img;
-        previewImg.style.setProperty("visibility", "visible");
-    })
+        previewImg.alt = "image insérée"; // alt pour définir l'attribut alt de l'image
+        previewImg.style.visibility = "visible"; 
+        divImg.appendChild(previewImg); // Ajout de l'élément img à la div .preview-image
+    });
 }
+
 
 
 async function AddPicture(e) {
@@ -272,9 +278,9 @@ async function AddPicture(e) {
     })
 }
 
-
-
 addImg()
+
+
 
 
 // function btnTransition(){
