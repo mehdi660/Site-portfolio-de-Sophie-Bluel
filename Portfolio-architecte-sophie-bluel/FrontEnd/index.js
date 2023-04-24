@@ -170,6 +170,7 @@ arrowLeft.addEventListener('click', () => {
 addPic.addEventListener('click', () => {
     if (addPic) {
         modaleAdd.style = "display: flex;"
+        modale.style = "display: none;"
     }
 })
 
