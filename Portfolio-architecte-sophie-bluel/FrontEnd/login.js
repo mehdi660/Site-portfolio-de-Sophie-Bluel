@@ -1,14 +1,22 @@
+// Sélection de l'élément du formulaire de connexion
 const connect = document.querySelector("input[type=submit]");
+
+// Ajout d'un écouteur d'événement au clic sur le bouton de connexion
 connect.addEventListener("click", function (event) {
-  event.preventDefault(); // empêche le formulaire de se soumettre de manière conventionnelle
-  loginUser(); // appelle la fonction pour se connecter à l'API
+  event.preventDefault(); // Empêche le formulaire de se soumettre de manière conventionnelle
+  loginUser(); // Appelle la fonction pour se connecter à l'API
 });
 
+// Fonction asynchrone pour gérer la connexion de l'utilisateur
 async function loginUser() {
+  // Récupération des valeurs des champs email et password
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
+
+  // URL de l'API pour la connexion
   const url = "http://localhost:5678/api/users/login";
 
+  // Envoi de la requête POST à l'API pour se connecter
   await fetch(url, {
     method: "POST",
     body: JSON.stringify({
@@ -22,29 +30,24 @@ async function loginUser() {
   })
     .then((response) => {
       if (response.ok) {
-        // Si la réponse est réussie, redirigez l'utilisateur vers la page principale
+        // Si la réponse est réussie, redirige l'utilisateur vers la page principale
         window.location.href = "./index.html";
         return response.json();
-      } else if (!email) {
-        // Si la réponse n'est pas réussie et l'email est vide, affichez un message d'erreur
-        alert("Utilisateur non trouvé.");
-      } else if (email && !password) {
-        // Si la réponse n'est pas réussie, l'email est présent mais le mot de passe est vide, affichez un message d'erreur
-        alert("Mauvais mot de passe.");
       } else {
-        alert("Email ou mot de passe éronnés");
+        alert("Email ou mot de passe erronés");
       }
     })
     .then((data) => {
+      // Stockage du token dans le localStorage
       localStorage.setItem("token", data.token);
       console.log(data.token);
     })
     .catch((error) => console.error(error));
 
-  // vérification de la présence du token dans le local storage
+  // Vérification de la présence du token dans le localStorage
   const token = localStorage.token;
   if (token) {
-    // envoyer le token avec les requêtes à l'API
+    // Envoi du token avec les requêtes à l'API
     fetch("http://localhost:5678/api/works", {
       headers: {
         Accept: "application/json",
@@ -62,7 +65,7 @@ async function loginUser() {
       .then((data) => {})
       .catch((error) => {
         console.log(error);
-        alert(error.message);
+        // alert(error.message);
       });
   }
 }
