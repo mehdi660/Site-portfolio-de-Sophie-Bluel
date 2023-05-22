@@ -18,11 +18,10 @@ getWork();
 function ajoutGallerie(json) {
   console.log(json);
   json.forEach((element) => {
-    const figure = `
-            <figure>
-                <img src=${element.imageUrl} alt=${element.title}>
-                <figcaption>${element.title}</figcaption>
-            </figure>`;
+    const figure = `<figure>
+			<img src=${element.imageUrl} alt=${element.title}>
+			<figcaption>${element.title}</figcaption>
+		</figure>`;
     const gallery = document.querySelector(".gallery");
     gallery.innerHTML = figure + gallery.innerHTML;
   });
@@ -114,18 +113,16 @@ closeMod.addEventListener("click", () => {
 
 function ajoutGallerieModale(json) {
   const projectContainer = document.querySelector(".picture-container");
-  projectContainer.textContent = ""; // Vider le contenu existant
+  projectContainer.textContent = ""; // vider le contenu existant
   json.forEach((element) => {
-    const figure = `
-            <figure class="picture">
-                <div class="i-container"><i id=${element.id} class="fa-solid fa-trash-can corbeil" style="color: #fff;"></i></div>
-                <img class="img-delete" src=${element.imageUrl} alt=${element.title}>
-                <p>éditer</p>
-            </figure>`;
+    const figure = `<figure class="picture">
+        <div class="i-container"><i id=${element.id} class="fa-solid fa-trash-can corbeil" style="color: #fff;"></i></div>
+            <img class="img-delete" src=${element.imageUrl} alt=${element.title}>
+            <p>éditer</p>
+        </figure>`;
 
-    projectContainer.innerHTML += figure; // Ajouter chaque image
+    projectContainer.innerHTML += figure; // ajouter chaque image
   });
-
   const deleteBtns = document.querySelectorAll(".corbeil");
   const btns = [...deleteBtns];
 
@@ -183,7 +180,7 @@ addPic.addEventListener("click", () => {
 let uploadField = document.getElementById("addPic");
 
 uploadField.onchange = function () {
-  if (this.files[0].size > 4096) {
+  if (this.files[0].size > 4096000) {
     alert("Le fichier est trop gros!");
     this.value = "";
   }
@@ -218,27 +215,50 @@ const submitBtn = document.querySelector(".btn-submit");
 
 formAdd.addEventListener("change", (event) => {
   event.preventDefault(); // Empêcher la soumission du formulaire
-  if (titleForm.value !== "" && categoryForm.value !== "") {
+  if (titleForm !== "" && categoryForm !== "") {
     submitBtn.style.background = "#1D6154";
     submitBtn.style.cursor = "pointer";
   } else {
-    // Afficher un message d'erreur ou effectuer d'autres actions si nécessaire
+    // Afficher un message d'erreur ou effectuer d'autres actions si les champs ne sont pas bien remplis
+    submitBtn.style.backgroundColor = "";
+    alert("Veuillez remplir tous les champs du formulaire.");
   }
 });
 
-async function AddPicture(event) {
-  event.preventDefault();
-  const formData = new FormData(formAdd);
-  const response = await fetch("http://localhost:5678/api/works", {
+let imgPreview = "";
+const divImg = document.querySelector(".preview-image");
+
+function addImg() {
+  const addAPic = document.getElementById("addPic");
+  addAPic.addEventListener("change", (e) => {
+    //"change" pour détecter les modifications dans un élément de type file
+    imgPreview = e.target.files[0];
+    const img = URL.createObjectURL(addAPic.files[0]);
+    const previewImg = document.createElement("img"); // Créez un nouvel élément img
+    previewImg.className = "import-pictures";
+    previewImg.src = img;
+    previewImg.alt = "image insérée"; // alt pour définir l'attribut alt de l'image
+    previewImg.style.visibility = "visible";
+    divImg.appendChild(previewImg); // Ajout de l'élément img à la div .preview-image
+  });
+}
+
+async function AddPicture(e) {
+  e.preventDefault();
+  const image = addAPic.files[0];
+  const categorie = categoryForm.value;
+  const title = titleForm.value;
+  const formData = new FormData();
+  formData.append("image", image);
+  formData.append("category", categorie);
+  formData.append("title", title);
+  const reponse = await fetch("http://localhost:5678/api/works", {
     method: "POST",
-    body: formData,
     headers: {
       Authorization: `Bearer ${token}`,
     },
+    body: formData,
   });
-  const json = await response.json();
-  console.log(json);
-  ajoutGallerieModale(json);
-  modale.style = "display: flex;";
-  overlay.style = "display: block;";
 }
+
+addImg();

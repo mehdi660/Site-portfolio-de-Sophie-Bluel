@@ -41,7 +41,7 @@ async function loginUser() {
     })
     .catch((error) => console.error(error));
 
-  // vérification de la présence du token dans le stockage local
+  // vérification de la présence du token dans le local storage
   const token = localStorage.token;
   if (token) {
     // envoyer le token avec les requêtes à l'API
